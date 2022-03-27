@@ -1,0 +1,9 @@
+ProductId,Name,ShortDescription,FullDescription,Vendor,MetaKeywords,MetaTitle,ItemCode,SCMCode,ManageInventoryMethod,StockQuantity,Price,AvailablePaymentMethod,ProductCost,Categories,Manufacturers,Picture1,Picture2,Picture3
+0,Bata Ladies Casual Moccasin Shoes Brown 5514316,Mackup For Girls,Your description,Bata Shoe Company Bangladesh Ltd,,,5514316,,Manage Stock By Attributes,101,1990,"Payments.Bkash,Payments.CashOnDelivery,Payments.CityBank,Payments.EasyPayBd,Payments.EblSkyPay,Payments.InstantPay",1791,66;75;85,Bata;,,,
+,,AttributeId,AttributeName,AttributeTextPrompt,AttributeIsRequired,AttributeControlTypeId,ValueName,PriceAdjustment,Cost,Quantity,,,,,,,,
+,,4,Size,Select a size,1,2,3,0,0,1,,,,,,,,
+,,5,Color,Select Color,0,40,Yellow,0,0,1,,,,,,,,
+,,AttributeType,SpecificationAttributeId,SpecificationAttributeOptionId,Name,AllowFiltering,,,,,,,,,,,,
+,,Option,7,50,,1,,,,,,,,,,,,
+,,Option,7,51,,1,,,,,,,,,,,,
+,,Option,7,0,BlackRedWhite,1,,,,,,,,,,,,
