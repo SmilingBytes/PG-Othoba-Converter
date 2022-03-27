@@ -8,6 +8,10 @@ start = timeit.default_timer()
 logging.info(f'Starting Converter')
 print(f'Starting Converter')
 
+pound_rate = 300
+regex_ml = r'\d+[m][l]'
+regex_g = r'\d+[g]'
+
 # Boots/Scraped Products
 with open('data.json') as json_file:
     data = json.load(json_file)
@@ -18,14 +22,22 @@ with open('data.json') as json_file:
         cnt += 1
         if cnt == 5: break;
 
+        name = p.get('name')
         product_price = re.findall('\d+\.\d+', p['old_price']) if p['old_price'] else re.findall('\d+\.\d+', p['price'])
-        if not product_price:
-            continue
-#
-        if type(product_price) is list:
-            product_price = float(product_price[0])
-#                 
-        product_price = str(int(product_price))
+
+        if not product_price: continue
+        
+        if type(product_price) is list: product_price = float(product_price[0])
+        product_price = int(float(str(product_price)))
+        
+        if (pos := re.search(regex_ml, name)):
+            product_price += int(name[pos.start():pos.end() - 2])
+        elif (pos := re.search(regex_g, name)):
+            product_price += int(name[pos.start():pos.end() - 1])
+        
+        product_price *= pound_rate
+        if product_price % 10: product_price += (10 - product_price % 10)
+        if product_price < 300: product_price = 300
 
         options = [var['name'] for var in p['variations']]
 
